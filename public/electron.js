@@ -15,7 +15,17 @@ function createWindow() {
     mainWindow.on("closed", () => (mainWindow = null));
 }
 
-app.on("ready", createWindow);
+app.on("ready", () => {
+    createWindow();
+
+    // React developer tools initialization
+    if(isDev){
+        const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer');
+        installExtension(REACT_DEVELOPER_TOOLS)
+            .then((name) => console.log(`Added Extension:  ${name}`))
+            .catch((err) => console.log('An error occurred: ', err));
+    }
+});
 
 app.on("window-all-closed", () => {
     if (process.platform !== "darwin") {
