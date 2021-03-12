@@ -10,9 +10,13 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  grid-area: 1 / 1 / 2 / 2;
 }
 
 .NavElement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-sizing: border-box;
@@ -20,13 +24,34 @@
   backdrop-filter: blur(20px);
   /* Note: backdrop-filter has minimal browser support */
   border-radius: 24px;
-  margin: 16px;
-
   font-family: 'Questrial', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 36px;
-  line-height: 37px;
   color: #FFFFFF;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 3%;
+  margin-right: 3%;
+  margin-left: 3%;
+  width: 100%;
+}
+
+.Dashboard {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(7, 1fr);
+  /* grid-row-gap: 5%; */
+  height: 100%;
+}
+
+.OverviewPane {
+  grid-area: 2 / 1 / 8 / 2;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+  box-shadow: inset 0px 4px 24px rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  /* Note: backdrop-filter has minimal browser support */
+  margin: 3%;
+  border-radius: 24px;
 }
