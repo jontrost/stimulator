@@ -1,13 +1,13 @@
-import React from 'react'
-import './Dashboard.scss'
-import OverviewPane from './overview-pane/OverviewPane'
+import React from 'react';
+import './Dashboard.scss';
+import OverviewPane from './overview-pane/OverviewPane';
 
-function Dashboard () {
+function Dashboard() {
   return (
-        <div className="Dashboard">
-            <OverviewPane></OverviewPane>
-        </div>
-  )
+    <div className="Dashboard">
+      <OverviewPane></OverviewPane>
+    </div>
+  );
 }
 
-export default Dashboard
+export default Dashboard;

@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-function Settings () {
+function Settings() {
   return (
-        <div>
+    <div>
             Settings
-        </div>
-  )
+    </div>
+  );
 }
 
-export default Settings
+export default Settings;

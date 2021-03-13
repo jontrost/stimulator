@@ -1,11 +1,11 @@
-import React from 'react'
-import './OverviewPane.scss'
+import React from 'react';
+import './OverviewPane.scss';
 
-function OverviewPane () {
+function OverviewPane() {
   return (
-        <div className="OverviewPane">
-        </div>
-  )
+    <div className="OverviewPane">
+    </div>
+  );
 }
 
-export default OverviewPane
+export default OverviewPane;

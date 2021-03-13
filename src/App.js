@@ -1,14 +1,14 @@
-import React from 'react'
-import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
-import Dashboard from './dashboard/Dashboard'
-import Navbar from './navbar/Navbar'
-import Browse from './browse/Browse'
-import Settings from './settings/Settings'
-import Watchlist from './watchlist/Watchlist'
-import Portfolio from './portfolio/Portfolio'
-import './App.scss'
+import React from 'react';
+import {HashRouter, Route, Switch, Redirect} from 'react-router-dom';
+import Dashboard from './dashboard/Dashboard';
+import Navbar from './navbar/Navbar';
+import Browse from './browse/Browse';
+import Settings from './settings/Settings';
+import Watchlist from './watchlist/Watchlist';
+import Portfolio from './portfolio/Portfolio';
+import './App.scss';
 
-function App () {
+function App() {
   return (
     <div className="App">
       <HashRouter>
@@ -25,7 +25,7 @@ function App () {
         </Switch>
       </HashRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

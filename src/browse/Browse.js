@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-function Browse () {
+function Browse() {
   return (
-        <div>
+    <div>
             Browse
-        </div>
-  )
+    </div>
+  );
 }
 
-export default Browse
+export default Browse;

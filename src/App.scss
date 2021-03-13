@@ -1,9 +1,13 @@
-@import './colors.scss';
+@import "./colors.scss";
 
 .App {
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(180deg, $backgroundLightBlue 0%, $backgroundDarkBlue 100%);
+  background: linear-gradient(
+    180deg,
+    $backgroundLightBlue 0%,
+    $backgroundDarkBlue 100%
+  );
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(7, 1fr);
