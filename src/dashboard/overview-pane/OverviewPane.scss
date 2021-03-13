@@ -1,5 +1,4 @@
-@import '../../colors.scss';
-@import '../../fonts.scss';
+@import '../../mixins.scss';
 
 .overview-pane {
   flex-grow: 1;
@@ -46,5 +45,10 @@
 }
 
 .available-cash {
+  @include body-font;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   grid-area: 10 / 1 / 11 / 2;
 }

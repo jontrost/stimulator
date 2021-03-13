@@ -1,7 +1,7 @@
 import React from 'react';
 import {HashRouter, Route, Switch, Redirect} from 'react-router-dom';
 import Dashboard from './dashboard/Dashboard';
-import NavBar from './navbar/NavBar';
+import NavBar from './reusable-components/navbar/NavBar';
 import Browse from './browse/Browse';
 import Settings from './settings/Settings';
 import Watchlist from './watchlist/Watchlist';

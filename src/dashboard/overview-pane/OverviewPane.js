@@ -1,4 +1,5 @@
 import React from 'react';
+import TimeframeSelector from '../../reusable-components/timeframe-selector/TimeframeSelector';
 import './OverviewPane.scss';
 
 function OverviewPane() {
@@ -7,8 +8,8 @@ function OverviewPane() {
       <div className="total-value">$15436.50</div>
       <div className="change-in-value">+$1523.42 Today</div>
       <div className="overview-graph"></div>
-      <div className="timeframe-selector"></div>
-      <div className="available-cash"></div>
+      <TimeframeSelector></TimeframeSelector>
+      <div className="available-cash">Available Cash $4593.02</div>
     </div>
   );
 }
