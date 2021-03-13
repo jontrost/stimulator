@@ -1,9 +1,25 @@
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
     <div className="App">
+      <Dashboard></Dashboard>
+    </div>
+  );
+}
+
+function Dashboard() {
+  return(
+    <div className="Dashboard">
       <NavBar></NavBar>
+      <OverviewPane></OverviewPane>
+    </div>
+  );
+}
+
+function OverviewPane() {
+  return (
+    <div className="OverviewPane">
     </div>
   );
 }
