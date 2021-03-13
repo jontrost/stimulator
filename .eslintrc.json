@@ -26,5 +26,10 @@
                 "ignoreUrls": true
             }
         ]
+    },
+    "settings": {
+        "react": {
+          "version": "detect"
+        }
     }
 }

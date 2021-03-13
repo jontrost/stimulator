@@ -1,9 +1,50 @@
 @import '../../colors.scss';
+@import '../../fonts.scss';
 
-.OverviewPane {
-    flex-grow: 1;
-    margin: 3%;
-    background: linear-gradient(180deg, $foregroundLightBlue 0%, $foregroundDarkBlue 100%);
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
-    border-radius: 24px;
+.overview-pane {
+  flex-grow: 1;
+  margin: 3%;
+  background: linear-gradient(
+    180deg,
+    $foregroundLightBlue 0%,
+    $foregroundDarkBlue 100%
+  );
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(10, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.total-value {
+  @include body-font;
+  color: $white;
+  grid-area: 1 / 1 / 2 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.change-in-value {
+  @include body-font;
+  color: $white;
+  grid-area: 2 / 1 / 3 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overview-graph {
+  background-color: $white;
+  grid-area: 3 / 1 / 9 / 2;
+}
+
+.timeframe-selector {
+  grid-area: 9 / 1 / 10 / 2;
+}
+
+.available-cash {
+  grid-area: 10 / 1 / 11 / 2;
 }
