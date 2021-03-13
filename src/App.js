@@ -1,7 +1,8 @@
-import { HashRouter, NavLink, Route, Switch, Redirect } from 'react-router-dom';
-import './App.scss';
+import React from 'react'
+import { HashRouter, NavLink, Route, Switch, Redirect } from 'react-router-dom'
+import './App.scss'
 
-function App() {
+function App () {
   return (
     <div className="App">
       <HashRouter>
@@ -10,25 +11,25 @@ function App() {
           <Route exact path="/">
             <Redirect to="/dashboard" />
           </Route>
-          <Route exact path="/dashboard" component={Dashboard}/>
-          <Route exact path="/portfolio" component={Portfolio}/>
-          <Route exact path="/browse" component={Browse}/>
-          <Route exact path="/watchlist" component={Watchlist}/>
-          <Route exact path="/settings" component={Settings}/>
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/portfolio" component={Portfolio} />
+          <Route exact path="/browse" component={Browse} />
+          <Route exact path="/watchlist" component={Watchlist} />
+          <Route exact path="/settings" component={Settings} />
         </Switch>
-      </HashRouter>   
+      </HashRouter>
     </div>
-  );
+  )
 }
 
-function OverviewPane() {
+function OverviewPane () {
   return (
     <div className="OverviewPane">
     </div>
-  );
+  )
 }
 
-function NavBar() {
+function NavBar () {
   return (
     <div className="NavBar">
       <NavLink className="NavElement" activeClassName="selected" to="/dashboard">Dashboard</NavLink>
@@ -37,47 +38,47 @@ function NavBar() {
       <NavLink className="NavElement" activeClassName="selected" to="/watchlist">Watchlist</NavLink>
       <NavLink className="NavElement" activeClassName="selected" to="/settings">Settings</NavLink>
     </div>
-  );
+  )
 }
 
-function Dashboard() {
-  return(
+function Dashboard () {
+  return (
     <div className="Dashboard">
       <OverviewPane></OverviewPane>
     </div>
-  );
+  )
 }
 
-function Portfolio() {
-  return(
+function Portfolio () {
+  return (
     <div>
       Portfolio
     </div>
-  );
+  )
 }
 
-function Browse() {
-  return(
+function Browse () {
+  return (
     <div>
       Browse
     </div>
-  );
+  )
 }
 
-function Watchlist() {
-  return(
+function Watchlist () {
+  return (
     <div>
       Watchlist
     </div>
-  );
+  )
 }
 
-function Settings() {
-  return(
+function Settings () {
+  return (
     <div>
       Settings
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
