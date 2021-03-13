@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-function Portfolio () {
+function Portfolio() {
   return (
-        <div>
+    <div>
             Portfolio
-        </div>
-  )
+    </div>
+  );
 }
 
-export default Portfolio
+export default Portfolio;
