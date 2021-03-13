@@ -1,0 +1,11 @@
+@import '../../mixins.scss';
+
+.timeframe-selector {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timeframe-button {
+  @include body-font;
+  color: $white;
+}

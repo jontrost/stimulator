@@ -4,7 +4,7 @@ import OverviewPane from './overview-pane/OverviewPane';
 
 function Dashboard() {
   return (
-    <div className="Dashboard">
+    <div className="dashboard">
       <OverviewPane></OverviewPane>
     </div>
   );

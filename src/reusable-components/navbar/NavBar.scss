@@ -1,0 +1,23 @@
+@import '../../mixins.scss';
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.nav-element {
+  margin-top: 3%;
+  margin-right: 2%;
+  margin-left: 2%;
+  @include button;
+
+  &:first-child {
+    margin-left: 3%;
+  }
+
+  &:last-child {
+    margin-right: 3%;
+  }
+}

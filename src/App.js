@@ -1,7 +1,7 @@
 import React from 'react';
 import {HashRouter, Route, Switch, Redirect} from 'react-router-dom';
 import Dashboard from './dashboard/Dashboard';
-import Navbar from './navbar/Navbar';
+import NavBar from './reusable-components/navbar/NavBar';
 import Browse from './browse/Browse';
 import Settings from './settings/Settings';
 import Watchlist from './watchlist/Watchlist';
@@ -10,9 +10,9 @@ import './App.scss';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <HashRouter>
-        <Navbar></Navbar>
+        <NavBar></NavBar>
         <Switch>
           <Route exact path="/">
             <Redirect to="/dashboard" />
