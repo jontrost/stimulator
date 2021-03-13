@@ -1,12 +1,18 @@
 import React from 'react'
-import { HashRouter, NavLink, Route, Switch, Redirect } from 'react-router-dom'
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
+import Dashboard from './dashboard/Dashboard'
+import Navbar from './navbar/Navbar'
+import Browse from './browse/Browse'
+import Settings from './settings/Settings'
+import Watchlist from './watchlist/Watchlist'
+import Portfolio from './portfolio/Portfolio'
 import './App.scss'
 
 function App () {
   return (
     <div className="App">
       <HashRouter>
-        <NavBar></NavBar>
+        <Navbar></Navbar>
         <Switch>
           <Route exact path="/">
             <Redirect to="/dashboard" />
@@ -18,65 +24,6 @@ function App () {
           <Route exact path="/settings" component={Settings} />
         </Switch>
       </HashRouter>
-    </div>
-  )
-}
-
-function OverviewPane () {
-  return (
-    <div className="OverviewPane">
-    </div>
-  )
-}
-
-function NavBar () {
-  return (
-    <div className="NavBar">
-      <NavLink className="NavElement" activeClassName="selected" to="/dashboard">Dashboard</NavLink>
-      <NavLink className="NavElement" activeClassName="selected" to="/portfolio">Portfolio</NavLink>
-      <NavLink className="NavElement" activeClassName="selected" to="/browse">Browse</NavLink>
-      <NavLink className="NavElement" activeClassName="selected" to="/watchlist">Watchlist</NavLink>
-      <NavLink className="NavElement" activeClassName="selected" to="/settings">Settings</NavLink>
-    </div>
-  )
-}
-
-function Dashboard () {
-  return (
-    <div className="Dashboard">
-      <OverviewPane></OverviewPane>
-    </div>
-  )
-}
-
-function Portfolio () {
-  return (
-    <div>
-      Portfolio
-    </div>
-  )
-}
-
-function Browse () {
-  return (
-    <div>
-      Browse
-    </div>
-  )
-}
-
-function Watchlist () {
-  return (
-    <div>
-      Watchlist
-    </div>
-  )
-}
-
-function Settings () {
-  return (
-    <div>
-      Settings
     </div>
   )
 }

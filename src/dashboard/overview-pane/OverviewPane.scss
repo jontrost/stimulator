@@ -1,0 +1,9 @@
+@import '../../colors.scss';
+
+.OverviewPane {
+    flex-grow: 1;
+    margin: 3%;
+    background: linear-gradient(180deg, $foregroundLightBlue 0%, $foregroundDarkBlue 100%);
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 24px;
+}
