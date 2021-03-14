@@ -11,10 +11,10 @@ const alpaca = new Alpaca({
   usePolygon: false,
 });
 
-// Example Alpaca API Endpoint
-// alpaca.getBars('1Min', ['AAPL'], {start:'2020-04-20T09:30:00-04:00', end:'2020-04-29T16:00:00-04:00'}).then((response) => {
-//   console.log(response)
-// })
+alpaca.getBars('1Min', ['AAPL'], {start: '2020-04-20T09:30:00-04:00', end: '2020-04-29T16:00:00-04:00'})
+    .then((response) => {
+      console.log(response);
+    });
 
 app.get('/', function(req, res) {
   res.send('Hello World!');
