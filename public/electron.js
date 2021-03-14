@@ -4,6 +4,7 @@ const BrowserWindow = electron.BrowserWindow;
 const path = require('path');
 const isDev = require('electron-is-dev');
 let mainWindow;
+require('../api/app');
 
 function createWindow() {
   mainWindow = new BrowserWindow({width: 1920, height: 1080});
