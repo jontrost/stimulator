@@ -25,7 +25,8 @@
                 "code": 120,
                 "ignoreUrls": true
             }
-        ]
+        ],
+        "react/prop-types": "off"
     },
     "settings": {
         "react": {
