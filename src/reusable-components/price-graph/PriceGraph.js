@@ -4,7 +4,7 @@ import './PriceGraph.scss';
 
 function PriceGraph(props) {
   useEffect(() => {
-    const ctx = document.getElementById('chart');
+    const ctx = document.getElementById(props.chartId);
     Chart.defaults.global.defaultFontColor = 'white';
     Chart.defaults.global.defaultFontFamily = '"Quicksand", sans-serif';
     new Chart(ctx, {
@@ -39,7 +39,7 @@ function PriceGraph(props) {
 
   return (
     <div className={props.className}>
-      <canvas id="chart"></canvas>
+      <canvas id={props.chartId}></canvas>
     </div>
   );
 }
