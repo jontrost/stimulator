@@ -7,8 +7,8 @@ $foregroundDarkBlue: #2d324c;
 $foregroundLightBlue: #50587f;
 $buttonDarkBlue: #40496b;
 $buttonLightBlue: #58628c;
-$accentDarkOrange: #7f361c;
-$accentLightOrange: #eaa159;
+$accentDarkOrange: #e43d19;
+$accentLightOrange: #e2a917;
 $white: #ffffff;
 $black: #000000;
 
@@ -40,11 +40,24 @@ $black: #000000;
   border-radius: 24px;
   text-decoration: none;
 
-  &.selected {
+  &:hover {
     background: linear-gradient(
       130deg,
       $accentLightOrange 0%,
       $accentDarkOrange 100%
     );
+  }
+
+  &.selected {
+    width: calc(100% - 65px);
+    border: double 5px transparent;
+    border-radius: 24px;
+    background-image: linear-gradient(
+      180deg,
+      $buttonLightBlue 0%,
+      $buttonDarkBlue 100%
+    ), radial-gradient(circle at top left, $accentLightOrange,$accentDarkOrange);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
   }
 }
