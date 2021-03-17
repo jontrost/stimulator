@@ -21,24 +21,21 @@ app.get('/', (req, res) => {
 });
 
 
-
 app.get('/assets', async (req, res) => {
-
-  let assetList = [];
+  const assetList = [];
 
   await alpaca.getAssets({
     status: 'active',
   }).then((response) => {
-    response.forEach(asset => {
+    response.forEach((asset) => {
       assetList.push({
         name: asset.name,
-        symbol: asset.symbol
+        symbol: asset.symbol,
       });
     });
   });
 
   res.json(assetList);
-
 });
 
 app.listen(4000, () => {
