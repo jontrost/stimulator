@@ -1,13 +1,12 @@
 import React from 'react';
+import Search from '../reusable-components/search/Search';
 import StockCard from '../reusable-components/stock-card/StockCard';
 import './Browse.scss';
 
 function Browse() {
   return (
     <div className="browse">
-      <div className="search-bar">
-        <input className="search-input"></input>
-      </div>
+      <Search></Search>
       <div className="results">
         <StockCard data={[Math.random()*500, Math.random()*500, Math.random()*500, Math.random()*500,
           Math.random()*500, Math.random()*500, Math.random()*500, Math.random()*500,
