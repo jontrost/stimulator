@@ -16,11 +16,32 @@ alpaca.getBars('1Min', ['AAPL'], {start: '2020-04-20T09:30:00-04:00', end: '2020
 
     });
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.listen(4000, function() {
+
+
+app.get('/assets', async (req, res) => {
+
+  let assetList = [];
+
+  await alpaca.getAssets({
+    status: 'active',
+  }).then((response) => {
+    response.forEach(asset => {
+      assetList.push({
+        name: asset.name,
+        symbol: asset.symbol
+      });
+    });
+  });
+
+  res.json(assetList);
+
+});
+
+app.listen(4000, () => {
   console.log('Example app listening on port 4000!');
 });
 
