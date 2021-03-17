@@ -1,27 +1,31 @@
 @import '../mixins.scss';
 
 .browse {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
+    grid-area: 2 / 1 / 8 / 2;
+    grid-row-gap: 3vw;
+
+    // SETUP GRID LAYOUT
+    margin: 3%;
 }
 
 .search-bar {
     @include button;
-    grid-area: 1 / 1 / 2 / 4;
     height: 100%;
+    grid-area: 1 / 1 / 2 / 2;
 }
 
 .search-input {
     background-color: transparent;
     width: 100%;
+    height: 100%;
 }
 
 .results {
-    // grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 	grid-auto-rows: auto;
-	grid-gap: 50px;
-	padding: 50px;
+	grid-row-gap: 3vw;
+    grid-column-gap: 3vw;
+    grid-area: 2 / 1 / 3 / 2;
 }
