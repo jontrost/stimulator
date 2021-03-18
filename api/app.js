@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const apiKeyId = 'PKGM8JLGXKX0FZNQIQKW';
 const secretKey = 'nmKLkOBf0iGaXd4wlgdspBjMwK5YfymWe8XUOeGF';
@@ -10,6 +11,8 @@ const alpaca = new Alpaca({
   paper: true,
   usePolygon: false,
 });
+
+app.use(cors());
 
 alpaca.getBars('1Min', ['AAPL'], {start: '2020-04-20T09:30:00-04:00', end: '2020-04-29T16:00:00-04:00'})
     .then((response) => {
@@ -35,7 +38,7 @@ app.get('/assets', async (req, res) => {
     });
   });
 
-  res.json(assetList);
+  res.json(assetList.slice(0, 10));
 });
 
 app.listen(4000, () => {

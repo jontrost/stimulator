@@ -5,7 +5,6 @@ import './PriceGraph.scss';
 function PriceGraph(props) {
   const id = Math.random().toString(36).substring(2);
   const profitable = (props.data[0] < props.data[props.data.length-1]) ? true : false;
-  console.log(props.data);
   useEffect(() => {
     const ctx = document.getElementById(id);
     Chart.defaults.global.defaultFontColor = 'white';
