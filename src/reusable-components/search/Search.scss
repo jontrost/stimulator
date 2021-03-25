@@ -14,58 +14,115 @@
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
   border-radius: 24px;
   text-decoration: none;
-    height: 100%;
-    display: flex;
+  height: 100%;
 }
 
 .search-input {
-    @include body-font;
-    background-color: transparent;
-    width: 100%;
-    height: 100%;
+  @include body-font;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  color: $white;
+  border: none;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
     color: $white;
-    border: none;
-    padding-left: 2.5%;
-    padding-right: 2.5%;
+    opacity: 50%;
+  }
 
-    &:focus {
-        outline: none;
-    }
-
-    &::placeholder{
-        color: $white;
-        opacity: 50%;
-    }
-
-    &::-webkit-search-cancel-button {
-        -webkit-appearance: none;
-        height: 1.5vw;
-        width: 1.5vw;
-        background: url("../../assets/cancel-icon.svg") no-repeat;
-        cursor: pointer;
-    }
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 1.5vw;
+    width: 1.5vw;
+    background: url('../../assets/cancel-icon.svg') no-repeat;
+    cursor: pointer;
+  }
 }
 
 .search-icon {
-    background: rgba(255,255,255,0.1) url("../../assets/search-icon.svg") no-repeat;
+  background: rgba(255, 255, 255, 0.1) url('../../assets/search-icon.svg')
+    no-repeat;
+  background-position: center;
+  border-radius: 24px;
+  background-size: 80% 50%;
+  outline: none;
+  border: none;
+  min-width: 9%;
+  height: 100%;
+
+  &:hover {
+    background: url('../../assets/search-icon.svg') no-repeat,
+      linear-gradient(130deg, $accentLightOrange 0%, $accentDarkOrange 100%)
+        no-repeat;
     background-position: center;
+    background-size: 80% 50%, 100%;
     border-radius: 24px;
-    background-size: 80% 50%;
-    outline: none;
-    border: none;
-    min-width: 9%;
-    height: 100%;
+    cursor: pointer;
+  }
+}
+
+.search-options {
+  margin-right: 2%;
+  max-height: 30vh;
+  overflow-y: scroll;
+  color: $white;
+  border-radius: 24px;
+  list-style-type: none;
+
+  &::-webkit-scrollbar {
+    width: 0.7vw;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
 
     &:hover {
-        background: url("../../assets/search-icon.svg") no-repeat, 
-        linear-gradient(
-            130deg,
-            $accentLightOrange 0%,
-            $accentDarkOrange 100%
-          ) no-repeat;
-        background-position: center;
-        background-size: 80% 50%, 100%;
-        border-radius: 24px;
-        cursor: pointer;
+      background: linear-gradient(
+        130deg,
+        $accentLightOrange 0%,
+        $accentDarkOrange 100%
+      );
     }
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+  }
+}
+
+.search-option {
+  @include body-font;
+}
+
+.search-options-wrapper {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  margin-top: 0.5%;
+  background: linear-gradient(
+    180deg,
+    $buttonLightBlue 0%,
+    $buttonDarkBlue 100%
+  );
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 24px;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
