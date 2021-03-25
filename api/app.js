@@ -38,7 +38,7 @@ app.get('/assets', async (req, res) => {
     });
   });
 
-  res.json(assetList.slice(0, 10));
+  res.json(assetList);
 });
 
 app.listen(4000, () => {
