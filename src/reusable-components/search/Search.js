@@ -2,42 +2,59 @@ import React, {useState, useEffect} from 'react';
 import './Search.scss';
 import '../../assets/search-icon.svg';
 
-function Search() {
+function Search(props) {
   const [searchTerm, setSearchTerm] = useState('');
-  const [assetList, setAssetList] = useState([]);
-  let typingStoppedTimeout;
+  const [showSearchSuggestions, setShowSearchSuggestions] = useState(false);
+  const [searchSuggestions, setSearchSuggestions] = useState([]);
+  const [masterAssetList, setMasterAssetList] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:4000/assets')
-        .then((res) => res.json())
+        .then((response) => response.json())
         .then((response) => {
-          setAssetList(response);
+          setMasterAssetList(response);
         })
         .catch((error) => console.log(error));
   }, []);
 
-  function assetSearch() {
-    return assetList.filter((asset) => asset.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      asset.symbol.toLowerCase().includes(searchTerm.toLowerCase()));
-  }
+  useEffect(() => {
+    let timer;
+    if (!searchTerm) {
+      setShowSearchSuggestions(false);
+    } else {
+      timer = setTimeout(() => {
+        const searchSuggestions = masterAssetList.filter((asset) =>
+          asset.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          asset.symbol.toLowerCase().includes(searchTerm.toLowerCase()));
+        setSearchSuggestions(searchSuggestions);
+        setShowSearchSuggestions(true);
+      }, 500);
+    }
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
 
-  function handleOnChange(e) {
-    clearTimeout(typingStoppedTimeout);
-    typingStoppedTimeout = setTimeout(() => setSearchTerm(e), 500);
+  function handleSearchSubmit(e) {
+    e.preventDefault();
+    fetch('http://localhost:4000/price-data')
+        .then((response) => response.json())
+        .then((response) => {
+          props.handleSearchResults(response);
+        })
+        .catch((error) => console.log(error));
   }
 
   return (
     <div className="search-wrapper">
       <div className="search-bar">
         <input className="search-input" placeholder="Search for a stock name or ticker symbol"
-          type="search" onChange={(e) => handleOnChange(e.target.value)}>
+          type="search" onChange={(e) => setSearchTerm(e.target.value)}>
         </input>
-        <button className="search-icon"></button>
+        <button className="search-icon" onClick={(e) => handleSearchSubmit(e)}></button>
       </div>
-      <div className={`search-options-wrapper ${searchTerm == '' ? 'hidden' : ''}`}>
+      <div className={`search-options-wrapper ${showSearchSuggestions ? '' : 'hidden'}`}>
         <ul className="search-options">
-          {assetSearch().map((asset) =>
-            <li className="search-option" key={asset.symbol}>{asset.name}{asset.symbol}</li>)}
+          {searchSuggestions.map((asset) =>
+            <li className="search-option" key={asset.symbol}>{asset.symbol} - {asset.name}</li>)}
         </ul>
       </div>
     </div>

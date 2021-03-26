@@ -4,9 +4,13 @@ import StockCard from '../reusable-components/stock-card/StockCard';
 import './Browse.scss';
 
 function Browse() {
+  function displaySearchData(data) {
+    console.log(data);
+  }
+
   return (
     <div className="browse">
-      <Search></Search>
+      <Search handleSearchResults={displaySearchData}></Search>
       <div className="results">
         <StockCard data={[Math.random()*500, Math.random()*500, Math.random()*500, Math.random()*500,
           Math.random()*500, Math.random()*500, Math.random()*500, Math.random()*500,

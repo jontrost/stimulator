@@ -41,6 +41,10 @@ app.get('/assets', async (req, res) => {
   res.json(assetList);
 });
 
+app.get('/price-data', async (req, res) => {
+  res.json(['Price Data']);
+});
+
 app.listen(4000, () => {
   console.log('Example app listening on port 4000!');
 });
