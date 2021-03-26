@@ -14,11 +14,6 @@ const alpaca = new Alpaca({
 
 app.use(cors());
 
-alpaca.getBars('1Min', ['AAPL'], {start: '2020-04-20T09:30:00-04:00', end: '2020-04-29T16:00:00-04:00'})
-    .then((response) => {
-
-    });
-
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
@@ -42,10 +37,20 @@ app.get('/assets', async (req, res) => {
 });
 
 app.get('/price-data', async (req, res) => {
-  res.json(['Price Data']);
+  let clock = await alpaca.getClock();
+  if(clock.is_open){
+    // Same as bottom but use websocket for most recent data point
+  }
+  else{
+    // Change this to be dynamic based on parameters
+    alpaca.getBars('day', ['GME'], {start: '2021-03-26', end: '2021-03-26'})
+    .then((response) => {
+      res.json(response);
+    });
+  }
 });
 
 app.listen(4000, () => {
-  console.log('Example app listening on port 4000!');
+  console.log('App listening on port 4000');
 });
 
