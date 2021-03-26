@@ -53,8 +53,9 @@ function Search(props) {
       </div>
       <div className={`search-options-wrapper ${showSearchSuggestions ? '' : 'hidden'}`}>
         <ul className="search-options">
-          {searchSuggestions.map((asset) =>
-            <li className="search-option" key={asset.symbol}>{asset.symbol} - {asset.name}</li>)}
+          {searchSuggestions.length > 0 ? searchSuggestions.map((asset) =>
+            <li className="search-option" key={asset.symbol}>{asset.symbol} - {asset.name}</li>) :
+            <li className="search-option">No matches found</li>}
         </ul>
       </div>
     </div>
