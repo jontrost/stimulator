@@ -15,7 +15,7 @@ function PriceGraph(props) {
         labels: props.labels,
         datasets: [
           {
-            label: props.chartLabel,
+            label: 'Price',
             lineTension: 0,
             fill: true,
             data: props.data,
