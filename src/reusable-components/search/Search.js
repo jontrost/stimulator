@@ -9,17 +9,17 @@ function Search(props) {
   const [masterAssetList, setMasterAssetList] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:4000/assets')
-        .then((response) => response.json())
-        .then((response) => {
-          setMasterAssetList(response);
-        })
-        .catch((error) => console.log(error));
+    async function fetchAssets() {
+      const response = await fetch('http://localhost:4000/assets');
+      const assets = await response.json();
+      setMasterAssetList(assets);
+    }
+    fetchAssets();
   }, []);
 
   useEffect(() => {
     let timer;
-    if (!searchTerm) {
+    if (!searchTerm || searchTerm.length < 3) {
       setShowSearchSuggestions(false);
     } else {
       timer = setTimeout(() => {
@@ -35,12 +35,19 @@ function Search(props) {
 
   function handleSearchSubmit(e) {
     e.preventDefault();
-    fetch('http://localhost:4000/price-data')
-        .then((response) => response.json())
-        .then((response) => {
-          props.handleSearchResults(response);
-        })
-        .catch((error) => console.log(error));
+    const priceDataArray = [];
+    searchSuggestions.forEach((sugg) => {
+      fetchPriceData(sugg.symbol);
+    });
+    async function fetchPriceData(symbol) {
+      const start = '2021-02-26T14:30:00.007Z';
+      const end = '2021-02-26T14:40:00.007Z';
+      const timeFrame = '1Min';
+      const response = await fetch(`http://localhost:4000/price-data/${symbol}/${start}/${end}/${timeFrame}`);
+      const priceData = await response.json();
+      priceDataArray.push(priceData);
+    }
+    props.handleSearchResults(priceDataArray);
   }
 
   return (

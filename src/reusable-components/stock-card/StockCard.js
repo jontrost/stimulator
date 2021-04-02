@@ -8,9 +8,7 @@ function StockCard(props) {
       <div className="stock-card-symbol">{props.symbol}</div>
       <PriceGraph
         data={props.data}
-        labels={props.labels}
-        chartLabel={props.chartLabel}
-        profitable={props.profitable}>
+        labels={props.labels}>
       </PriceGraph>
     </div>
   );
