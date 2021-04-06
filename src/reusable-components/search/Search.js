@@ -33,20 +33,20 @@ function Search(props) {
     return () => clearTimeout(timer);
   }, [searchTerm]);
 
-  function handleSearchSubmit(e) {
+  async function handleSearchSubmit(e) {
     e.preventDefault();
-    const priceDataArray = [];
+    const searchSuggSymbols = [];
     searchSuggestions.forEach((sugg) => {
-      fetchPriceData(sugg.symbol);
+      searchSuggSymbols.push(sugg.symbol);
     });
-    async function fetchPriceData(symbol) {
-      const start = '2021-02-26T14:30:00.007Z';
-      const end = '2021-02-26T14:40:00.007Z';
-      const timeFrame = '1Min';
-      const response = await fetch(`http://localhost:4000/price-data/${symbol}/${start}/${end}/${timeFrame}`);
-      const priceData = await response.json();
-      priceDataArray.push(priceData);
+    const symbols = searchSuggSymbols.join();
+
+    async function fetchPriceData() {
+      const response = await fetch(`http://localhost:4000/price-data-multiple/${symbols}`);
+      return await response.json();
     }
+
+    const priceDataArray = await fetchPriceData();
     props.handleSearchResults(priceDataArray);
   }
 

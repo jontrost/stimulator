@@ -62,6 +62,32 @@ app.get('/price-data/:symbol/:start/:end/:timeFrame', async (req, res) => {
   });
 });
 
+app.get('/price-data-multiple/:symbols', async (req, res) => {
+  const symbols = req.params.symbols.split(',');
+  const priceData = [];
+
+  for (const symbol of symbols) {
+    const symbolPriceData = [];
+    const response = await alpacaClient.getBars({
+      symbol: symbol,
+      start: new Date('2021-02-26T14:30:00.007Z'),
+      end: new Date('2021-02-26T14:40:00.007Z'),
+      timeframe: '1Min',
+    });
+    response.bars.forEach((bar) => {
+      symbolPriceData.push({
+        price: bar.c,
+        time: bar.t,
+      });
+    });
+    priceData.push({
+      symbol: response.symbol,
+      priceData: symbolPriceData,
+    });
+  }
+  res.json(priceData);
+});
+
 app.listen(4000, () => {
   console.log('App listening on port 4000');
 });
